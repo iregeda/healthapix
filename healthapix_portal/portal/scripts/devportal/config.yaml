@@ -1,0 +1,60 @@
+# Copyright 2019 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This sample configuration provides the minimum configuration required by the DPT scripts.
+# Audit resources will be created locally in the project.
+
+overall:
+  organization_id: '984222357466'
+  billing_account: 01EF7C-FF4D28-2E95B5
+  domain: northbukit.space
+
+generated_fields_path: ./generated_fields.yaml
+
+projects:
+- project_id: healthcare-293716
+  owners_group: healthcare-owners-v2@northbukit.space
+  auditors_group: healthcare-auditors-v2@northbukit.space
+  audit:
+    logs_bigquery_dataset:
+      dataset_id: healthcare_logs_v2  # Bigquery Dataset names must use underscores.
+      location: US
+  devops:
+    state_storage_bucket:
+      name: healthcare-state-v2
+      location: US
+  compute_firewalls:
+  - name: healthcare-firewall-v2
+    network: default
+    allow:
+      protocol: "tcp"
+      ports: ["22","80","443"]
+  compute_instances:
+  - name: healthcare-portal-instance-v2
+    zone: us-west1-a
+    machine_type: n1-standard-2
+    boot_disk:
+      initialize_params:
+        image: centos-cloud/centos-7-v20200309
+    network_interface:
+      network: default
+      access_config: {}
+    metadata:
+      #startup-script: "cd /opt; mkdir /opt/portalCode; gsutil cp gs://install-healthapix/portalCode.tar.gz /opt/portalCode; cd /opt/portalCode;  tar -xvzf portalCode.tar.gz;  sh -xv /opt/portalCode/portal/scripts/devportal/installnginxmariadbdrupalghc.sh"
+      startup-script: "cd /opt; mkdir /opt/portalCode; gsutil cp gs://install-healthapix/portalCode.tar.gz /opt/portalCode; cd /opt/portalCode;  tar -xvzf portalCode.tar.gz"
+     ## startup-script: "iptables -F; setenforce 0; yum -y update; yum -y install git.x86_64; cd /opt; git clone https://ghcdeploy:7wFGAVLAVdYc676D@gitlab.digitalapicraft.com/krishnakanth/tmp_ghc_v2.2.git portalCode; cd /opt/portalCode/scripts/devportal; sh -xv /opt/portalCode/scripts/devportal/installnginxmariadbdrupalghc.sh"
+    service_account:
+      email: healthcare-vm@healthcare-293716.iam.gserviceaccount.com
+      scopes:
+      - cloud-platform

@@ -1,0 +1,18 @@
+uuid: 3cad0185-cf6d-4d08-9cac-b041b668a847
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.new_content
+id: node.new_content.title
+field_name: title
+entity_type: node
+bundle: new_content
+label: 'New content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

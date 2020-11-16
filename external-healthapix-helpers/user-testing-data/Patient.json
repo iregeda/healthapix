@@ -1,0 +1,209 @@
+{
+  "address": [
+    {
+      "city": "Rockland",
+      "country": "US",
+      "extension": [
+        {
+          "extension": [
+            {
+              "url": "latitude",
+              "valueDecimal": 42.13218431226028
+            },
+            {
+              "url": "longitude",
+              "valueDecimal": -70.88540807790362
+            }
+          ],
+          "url": "http://hl7.org/fhir/StructureDefinition/geolocation"
+        }
+      ],
+      "line": [
+        "1053 Bahringer Lock"
+      ],
+      "state": "Massachusetts"
+    }
+  ],
+  "birthDate": "1945-10-21",
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "code": "en-US",
+            "display": "English",
+            "system": "urn:ietf:bcp:47"
+          }
+        ],
+        "text": "English"
+      }
+    }
+  ],
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2106-3",
+            "display": "White",
+            "system": "urn:oid:2.16.840.1.113883.6.238"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "White"
+        }
+      ],
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+    },
+    {
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino",
+            "system": "urn:oid:2.16.840.1.113883.6.238"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "Not Hispanic or Latino"
+        }
+      ],
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+      "valueString": "Sam879 Mitchell808"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "M"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+      "valueAddress": {
+        "city": "Boston",
+        "country": "US",
+        "state": "Massachusetts"
+      }
+    },
+    {
+      "url": "http://synthetichealth.github.io/synthea/disability-adjusted-life-years",
+      "valueDecimal": 5.200551598393034
+    },
+    {
+      "url": "http://synthetichealth.github.io/synthea/quality-adjusted-life-years",
+      "valueDecimal": 68.79944840160697
+    }
+  ],
+  "gender": "male",
+  "identifier": [
+    {
+            "system": "Gmail Account",
+            "use": "usual",
+            "value": "<patient-email>@gmail.com"
+          },
+    {
+      "system": "http://hospital.smarthealthit.org",
+      "type": {
+        "coding": [
+          {
+            "code": "MR",
+            "display": "Medical Record Number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ],
+        "text": "Medical Record Number"
+      }
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-ssn",
+      "type": {
+        "coding": [
+          {
+            "code": "SS",
+            "display": "Social Security Number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ],
+        "text": "Social Security Number"
+      },
+      "value": "999-39-5092"
+    },
+    {
+      "system": "urn:oid:2.16.840.1.113883.4.3.25",
+      "type": {
+        "coding": [
+          {
+            "code": "DL",
+            "display": "Driver's License",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ],
+        "text": "Driver's License"
+      },
+      "value": "S99993524"
+    },
+    {
+      "system": "http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber",
+      "type": {
+        "coding": [
+          {
+            "code": "PPN",
+            "display": "Passport Number",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ],
+        "text": "Passport Number"
+      },
+      "value": "X34596030X"
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "code": "M",
+        "display": "M",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
+      }
+    ],
+    "text": "M"
+  },
+  "meta": {
+    "lastUpdated": "2020-05-18T16:40:10.992254+00:00",
+    "versionId": "MTU4OTgyMDAxMDk5MjI1NDAwMA"
+  },
+  "multipleBirthBoolean": false,
+  "name": [
+    {
+      "family": "Price929",
+      "given": [
+        "Booker670"
+      ],
+      "prefix": [
+        "Mr."
+      ],
+      "use": "official"
+    }
+  ],
+  "resourceType": "Patient",
+  "telecom": [
+    {
+      "system": "phone",
+      "use": "home",
+      "value": "555-945-6141"
+    },
+          {
+            "system": "email",
+            "use": "work",
+            "value": "<patient-email>@gmail.com"
+          }
+  ],
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Generated by <a href=\"https://github.com/synthetichealth/synthea\">Synthea</a>.Version identifier: v2.5.0-32-g5503ea1\n .   Person seed: -4740512774182655022  Population seed: 1581339688513</div>",
+    "status": "generated"
+  }
+}

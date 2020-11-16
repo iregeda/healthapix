@@ -1,0 +1,39 @@
+uuid: f614114b-f566-47b0-a5d6-90a2b5ae874d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:98497cf5-a8a9-4efc-9ab8-89ceaa6a1fc2'
+  module:
+    - block_content
+    - block_visibility_groups
+    - user
+  theme:
+    - mdc_theme
+id: signwithgoogle
+theme: mdc_theme
+region: header_right_block
+weight: 0
+provider: null
+plugin: 'block_content:98497cf5-a8a9-4efc-9ab8-89ceaa6a1fc2'
+settings:
+  id: 'block_content:98497cf5-a8a9-4efc-9ab8-89ceaa6a1fc2'
+  label: 'SIGN WITH GOOGLE'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

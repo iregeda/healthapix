@@ -1,0 +1,6 @@
+/vendor
+/.editorconfig
+/.gitattributes
+/.idia
+.idea
+.DS_Store

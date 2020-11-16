@@ -1,0 +1,100 @@
+
+## Install Dependencies
+
+# check for sudo access
+if [[ "$EUID" -ne 0 ]]; then
+  echo "ERROR: Please run this script as root"
+  exit 1
+fi
+
+
+# Update apt
+sudo apt -y update
+
+# Update apt-get
+sudo apt-get -y update
+
+# Install curl
+echo "** installing curl"
+sudo apt-get -y install curl
+
+
+# install Java 8
+echo "** installing Java 8"
+sudo apt -y install openjdk-8-jdk
+echo '** Java Installed: ' 
+java -version
+
+# install Java 8 compiler
+echo "** installing Java 8 JDK"
+add-apt-repository ppa:webupd8team/java
+apt update
+#apt -y install oracle-java8-installer
+echo '** Javac installed:'
+echo javac -version
+
+# Install Maven 
+echo "** installing Maven"
+apt install -y maven
+echo '** Maven installed:'
+echo mvn -version
+
+# install NodeJS
+echo "** installing NodeJS 10.x"
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+echo 'NodeJS installed:'
+echo node --version
+
+# install Gulp
+echo "** installing npm"
+npm install --global gulp-cli
+
+# install apigeetool
+echo "** installing apigeetool"
+npm install -g apigeetool
+
+# install uuidgen
+echo "** installing uuidgen"
+sudo apt-get -y install uuid-runtime
+
+# install yq
+echo "** installing yq"
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+export PATH="$PATH:/home/root/.local/bin"
+
+echo $PATH
+pip --version
+pip install yq
+
+
+# install jq
+echo "** installing jq"
+sudo apt-get -y install jq
+
+# install git
+echo "** installing git"
+sudo apt-get -y install git
+
+# install unzip
+echo "** installing unzip"
+sudo apt-get -y install unzip
+
+# install terraform
+echo "** installing terraform"
+TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
+
+wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
+
+unzip terraform_${TER_VER}_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+
+which terraform
+terraform -v
+
+echo "** dependencies installed"
+
+
+
+

@@ -1,0 +1,47 @@
+{
+  "gender": "male",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "MR",
+            "system": "http://hl7.org/fhir/v2/0203"
+          }
+        ]
+      }
+    },
+    {
+      "system": "Gmail Account",
+      "use": "usual",
+      "value": "<rp-email>@gmail.com"
+    }
+  ],
+  "name": [
+    {
+      "family": "Person321",
+      "given": [
+        "Related321"
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/61273c4c-a128-4107-b077-f686bf788bbf"
+  },
+  "resourceType": "RelatedPerson",
+  "telecom": [
+    {
+      "system": "email",
+      "use": "work",
+      "value": "<rp-email>@gmail.com"
+    }
+  ],
+  "relationship": [{
+   "coding": [
+      {
+         "system": "http://hl7.org/fhir/v3/RoleCode",
+          "code": "FAMMEMB"
+      }
+   ]
+  }]
+}

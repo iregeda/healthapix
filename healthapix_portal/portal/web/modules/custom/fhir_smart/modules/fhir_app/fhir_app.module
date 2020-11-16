@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Contains fhir_app.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function fhir_app_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the fhir_app module.
+    case 'help.page.fhir_app':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Fhir App') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function fhir_app_preprocess_select(&$variables) {
+  $element = $variables['element'];
+  $variables['option_attributes'] = $element['#option_attributes'];
+}

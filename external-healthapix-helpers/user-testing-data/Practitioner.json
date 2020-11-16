@@ -1,0 +1,49 @@
+{
+  "active": true,
+  "address": [
+    {
+      "city": "LOWELL",
+      "country": "US",
+      "line": [
+        "1230 BRIDGE STREET"
+      ],
+      "postalCode": "1850",
+      "state": "MA"
+    }
+  ],
+  "gender": "female",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "93220"
+    },
+    {
+      "system": "Gmail Account",
+      "use": "usual",
+      "value": "<practitioner-email>@gmail.com"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2020-07-16T10:56:26.616210+00:00",
+    "versionId": "MTU5NDg5Njk4NjYxNjIxMDAwMA"
+  },
+  "name": [
+    {
+      "family": "HealthAPIx",
+      "given": [
+        "Doctor"
+      ],
+      "prefix": [
+        "Dr."
+      ]
+    }
+  ],
+  "resourceType": "Practitioner",
+  "telecom": [
+    {
+      "system": "email",
+      "use": "work",
+      "value": "<practitioner-email>@gmail.com"
+    }
+  ]
+}

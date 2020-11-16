@@ -1,0 +1,70 @@
+# Create Records Script
+
+# Get Token, no scopes
+curl -X POST https://healthapix-dev-dev.apigee.net/oauth/v2/accesstoken?grant_type=client_credentials -H "Authorization: Basic SXk1N0dGV1RLNFdKa0ZKRDhSZDZBb214Nlc1ZTJJZUE6TG9YcnNzVlNOV2FlVzlvZw==" -d ''
+
+curl -X POST https://healthapix-dev-dev.apigee.net/oauth/v2/accesstoken?grant_type=client_credentials -H "Authorization: Basic cFNNMENNbDNnWE1zQmRuZEl5R0s3NjVGN3hVSTFkQm06YW90NmQ4akU3MmhkWWJUQg==" -d ''
+
+
+# Get Token, with scopes
+curl -X POST https://healthapix-dev-dev.apigee.net/oauth/v2/accesstoken?grant_type=client_credentials -H "Authorization: Basic SXk1N0dGV1RLNFdKa0ZKRDhSZDZBb214Nlc1ZTJJZUE6TG9YcnNzVlNOV2FlVzlvZw==" -d 'grant_type=client_credentials&scope=patient%2FPatient.read+patient%2FPatient.write'
+
+
+
+# Get all Patients
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Patient" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer J6CX2UguNU1ebZjG3QBrorGLEsvs"
+
+# Get Patient by email
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Patient?email=dm.healthapix.patient@gmail.com" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer J6CX2UguNU1ebZjG3QBrorGLEsvs"
+
+# Create new Patient (see response for ID)
+#  - Update email and other details in Patient.json
+curl -X POST "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Patient" -H "Content-Type: application/fhir+json;charset=utf-8" -H "Authorization: Bearer J6CX2UguNU1ebZjG3QBrorGLEsvs" --data "@Patient.json"
+
+# Delete a Patient
+curl -X DELETE -H "Authorization: Bearer J6CX2UguNU1ebZjG3QBrorGLEsvs" "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Patient/bfaf5168-8153-43ed-bd31-c7c28fa7b4d6" 
+
+
+
+# Get all Practitioners
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Practitioner" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer vxc9fwCmLsK7P2KV3xwInCM6lpjC"
+
+# Get Practitioner by email
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Practitioner?email=dm.healthapix.dr@gmail.com" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer vxc9fwCmLsK7P2KV3xwInCM6lpjC"
+
+# Create new Practitioner (see response for ID)
+#  - Update email and other details in Patient.json
+curl -X POST "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Practitioner" -H "Content-Type: application/fhir+json;charset=utf-8" -H "Authorization: Bearer vxc9fwCmLsK7P2KV3xwInCM6lpjC" --data "@Practitioner.json"
+
+# Delete a Practitioner
+curl -X DELETE -H "Authorization: Bearer vxc9fwCmLsK7P2KV3xwInCM6lpjC" "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Practitioner/81c513c8-b744-4e8d-a8b1-6d53f3eb7947" 
+
+
+
+
+
+
+# Get all RelatedPersons
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/RelatedPerson" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer 9uqdziZ1rIgbFbtT5JlORwclryGb"
+
+# Get RelatedPerson by email
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/RelatedPerson?email=dm.healthapix.rp@gmail.com" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer 9uqdziZ1rIgbFbtT5JlORwclryGb"
+
+# Create new RelatedPerson (see response for ID)
+#  - Update email in RelatedPerson.json
+#  - Update the Patient/<patientId> in RelatedPerson.json to match previously created Patient record
+curl -X POST "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/RelatedPerson" -H "Content-Type: application/fhir+json;charset=utf-8" -H "Authorization: Bearer 9uqdziZ1rIgbFbtT5JlORwclryGb" --data "@RelatedPerson.json"
+
+# Delete a RelatedPerson
+curl -X DELETE -H "Authorization: Bearer 9uqdziZ1rIgbFbtT5JlORwclryGb" "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/RelatedPerson/dac4cf9f-36d0-418b-b3f4-d3d664ed9e94" 
+
+
+
+# Get Consent records
+curl -X GET "https://healthapix-dev-dev.apigee.net/v1/r4/R4_bd836872-4fac-425e-ac3d-d88c333214a2/Consent" -H "Accept: application/fhir+json;charset=utf-8" -H "Authorization: Bearer 9uqdziZ1rIgbFbtT5JlORwclryGb"
+
+
+
+curl --location --request GET 'https://{apigeeorg}-{env}.apigee.net/v1/ghc/r4/Patient' \
+--header 'Authorization: Bearer 4bBHcfEoLl4ve1HhFqS1AiV2fg2z'
+

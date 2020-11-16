@@ -1,0 +1,743 @@
+openapi: 3.0.1
+info:
+  title: HL7® FHIR® Consent resource API documentation
+  description:
+    "Fast Healthcare Interoperability Resources (HL7® FHIR®, pronounced \"Fire\"\
+    ) defines a set of \"Resources\" that represent granular clinical concepts. The resources\
+    \ can be managed in isolation, or aggregated into complex documents. Technically, FHIR is\
+    \ designed for the web; the resources are based on simple JSON structures, with an\
+    \ http-based RESTful protocol where each resource has predictable URL. Where possible,\
+    \ open internet standards are used for data representation. The FHIR® R4 API docs are part\
+    \ of the FHIR® Specifications (v4.0.1: R4). The is the current published version. This\
+    \ section contains API docs for the R4 resources required to meet the CMS and ONC\
+    \ interoperability and data access requirements. API docs for other resources can be added\
+    \ by API publishers on request. \n"
+  version: "3.0.0"
+servers:
+  - url: https://org-env.apigee.net/v1/ghc/stu3
+tags:
+  - name: Consent
+paths:
+  /Consent:
+    get:
+      tags:
+        - Consent
+      summary: Get Consent
+      parameters:
+      - name: date
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: identifier
+        in: query
+        schema:
+          type: string
+      - name: patient
+        in: query
+        schema:
+          type: string
+      - name: action
+        in: query
+        schema:
+          type: string
+      - name: actor
+        in: query
+        schema:
+          type: string
+      - name: category
+        in: query
+        schema:
+          type: string
+      - name: consentor
+        in: query
+        schema:
+          type: string
+      - name: data
+        in: query
+        schema:
+          type: string
+      - name: organization
+        in: query
+        schema:
+          type: string
+      - name: period
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: purpose
+        in: query
+        schema:
+          type: string
+      - name: securitylabel
+        in: query
+        schema:
+          type: string
+      - name: source
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Bundle"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.read
+    post:
+      tags:
+        - Consent
+      summary: Create Consent
+      requestBody:
+        content:
+          "application/fhir+json;charset=utf-8":
+            schema:
+              $ref: "#/components/schemas/Consent"
+        required: false
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Consent"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.write
+      x-codegen-request-body-name: body
+  /Consent/{id}:
+    get:
+      tags:
+        - Consent
+      summary: Retrieve Consent by ID
+      description: Retrieve Consent by providing ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Consent"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.read
+    put:
+      tags:
+        - Consent
+      summary: Update Consent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          "application/fhir+json;charset=utf-8":
+            schema:
+              $ref: "#/components/schemas/Consent"
+        required: false
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Consent"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.write
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Consent
+      summary: Remove Consent by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.write
+  /Consent/{id}/_history:
+    get:
+      tags:
+        - Consent
+      summary: Retrive Consent History by ID
+      description: Retrieve Consent History by providing ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: _since
+          in: query
+          schema:
+            type: string
+        - name: _count
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Bundle"
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.read
+  /Consent/{id}/_history/{vid}:
+    get:
+      tags:
+        - Consent
+      summary: Retrive Consent History by ID and Version
+      description: Retrieve Consent History by providing ID and version
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Consent"
+
+        400:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+
+        500:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+
+        default:
+          description: Unexpected Error
+          content:
+            application/fhir+json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+      security:
+        - OAuthV2B2B:
+            - user/Consent.read
+components:
+  schemas:
+    Consent:
+      required:
+      - category
+      - dateTime
+      - id
+      - meta
+      - organization
+      - patient
+      - policyRule
+      - provision
+      - resourceType
+      - scope
+      - sourceAttachment
+      - status
+      - text
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+          - div
+          - status
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        status:
+          minLength: 1
+          type: string
+        scope:
+          required:
+          - coding
+          type: object
+          properties:
+            coding:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                - code
+                - system
+                type: object
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+        category:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            type: object
+            properties:
+              coding:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                  - code
+                  - system
+                  type: object
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+        patient:
+          required:
+          - display
+          - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+            display:
+              minLength: 1
+              type: string
+        dateTime:
+          minLength: 1
+          type: string
+        organization:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+            - reference
+            type: object
+            properties:
+              reference:
+                minLength: 1
+                type: string
+        sourceAttachment:
+          required:
+          - title
+          type: object
+          properties:
+            title:
+              minLength: 1
+              type: string
+        policyRule:
+          required:
+          - coding
+          type: object
+          properties:
+            coding:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                - code
+                - system
+                type: object
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+        provision:
+          required:
+          - period
+          type: object
+          properties:
+            period:
+              required:
+              - end
+              - start
+              type: object
+              properties:
+                start:
+                  minLength: 1
+                  type: string
+                end:
+                  minLength: 1
+                  type: string
+        meta:
+          required:
+          - tag
+          type: object
+          properties:
+            tag:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                - code
+                - display
+                - system
+                type: object
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+                  display:
+                    minLength: 1
+                    type: string
+      description: ""
+    OperationOutcome:
+      type: object
+      properties: 
+        resourceType: 
+          type: string
+        id: 
+          type: string
+        text: 
+          type: object
+          properties: 
+            status: 
+              type: string
+            div: 
+              type: string
+        issue: 
+          type: array
+          items: 
+            type: object
+            properties: 
+              severity: 
+                type: string
+              code: 
+                type: string
+              diagnostics: 
+                type: string
+              details: 
+                type: object
+                properties: 
+                  text: 
+                    type: string
+              location: 
+                type: array
+                items: 
+                  type: string
+              expression: 
+                type: array
+                items: 
+                  type: string
+    Bundle:
+      required:
+      - entry
+      - id
+      - link
+      - meta
+      - resourceType
+      - total
+      - type
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        meta:
+          required:
+          - lastUpdated
+          - tag
+          type: object
+          properties:
+            lastUpdated:
+              minLength: 1
+              type: string
+            tag:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                - code
+                - display
+                - system
+                type: object
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+                  display:
+                    minLength: 1
+                    type: string
+        type:
+          minLength: 1
+          type: string
+        total:
+          type: number
+        link:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+            - relation
+            - url
+            type: object
+            properties:
+              relation:
+                minLength: 1
+                type: string
+              url:
+                minLength: 1
+                type: string
+        entry:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+            - fullUrl
+            type: object
+            properties:
+              fullUrl:
+                minLength: 1
+                type: string
+              resource:
+                required:
+                - id
+                - intent
+                - medicationReference
+                - resourceType
+                - status
+                - subject
+                - text
+                type: object
+                properties:
+                  resourceType:
+                    minLength: 1
+                    type: string
+                  id:
+                    minLength: 1
+                    type: string
+                  text:
+                    required:
+                    - div
+                    - status
+                    type: object
+                    properties:
+                      status:
+                        minLength: 1
+                        type: string
+                      div:
+                        minLength: 1
+                        type: string
+                  status:
+                    minLength: 1
+                    type: string
+                  intent:
+                    minLength: 1
+                    type: string
+                  medicationReference:
+                    required:
+                    - reference
+                    type: object
+                    properties:
+                      reference:
+                        minLength: 1
+                        type: string
+                  subject:
+                    required:
+                    - reference
+                    type: object
+                    properties:
+                      reference:
+                        minLength: 1
+                        type: string
+              search:
+                required:
+                - mode
+                - score
+                type: object
+                properties:
+                  mode:
+                    minLength: 1
+                    type: string
+                  score:
+                    type: number
+      description: ""
+  securitySchemes:
+    OAuthV2B2B:
+      type: oauth2
+      description: Security scheme for B2B flow using authorization code flow.
+      flows:
+        clientCredentials:
+          tokenUrl: "https://org-env.apigee.net/oauth/v2/accesstoken?grant_type=client_credentials"
+          scopes:
+            user/Consent.read: Read permissions for Consents.
+            user/Consent.write: Write permissions for Consents.

@@ -1,0 +1,6 @@
+fhir_restapi.admin:
+  title: 'Apigee Launch URL Settings'
+  description: 'Configuration for the APIGEE Launch URL settings'
+  parent: system.admin_config
+  route_name: fhir_restapi.apigee_auth_url.settings
+  weight: 100

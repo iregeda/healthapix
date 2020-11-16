@@ -1,0 +1,5 @@
+name: Custom attrib APIs REST API
+description: Define's a custom REST Resource for GET method for api selection
+package: Custom
+type: module
+core: 8.x
